@@ -80,7 +80,7 @@ def value(s):
         [0.8 * get_utility(s, up) + 0.1 * get_utility(s, left) + 0.1 * get_utility(s, right),  # go up
          0.8 * get_utility(s, down) + 0.1 * get_utility(s, left) + 0.1 * get_utility(s, right),  # go down
          0.8 * get_utility(s, right) + 0.1 * get_utility(s, up) + 0.1 * get_utility(s, down),  # go right
-         0.8 * get_utility(s, left) + 0.1 * get_utility(s, up) + 0.1 * get_utility(s, down), ])  # go left
+         0.8 * get_utility(s, left) + 0.1 * get_utility(s, up) + 0.1 * get_utility(s, down)])  # go left
     # print(utilities)        #Uncomment to see the utilities of every iteration
 
 
@@ -93,6 +93,7 @@ def value_iteration(iterations):
     for _ in range(0, iterations):
         for i in range(0, 3):
             for j in range(0, 4):
+                # We don't need values for start/end/non-reachable states
                 if [i, j] == [1, 1] or [i, j] == [0, 3] or [i, j] == [1, 3]:
                     None
                 else:

@@ -1,4 +1,4 @@
-# MDP from the example by Sebastion Thrun in: https://www.youtube.com/watch?v=glHKJ359Cnc&t=44s
+# MDP from the example by Sebastian Thrun in: https://www.youtube.com/watch?v=glHKJ359Cnc&t=44s
 mdp = [[-3, -3, -3, 100], [-3, None, -3, -100], [-3, -3, -3, -3]]
 
 # Initial Utilities

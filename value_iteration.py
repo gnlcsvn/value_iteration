@@ -71,11 +71,12 @@ def value(s):
     U(s) = R(s) + max(P(s'|s, a) U(s))
     Computes the reward plus the max value of all neighbouring utilities multiplied by their respective
     probability to reach the stat s'.
+    The index of the state in the mdp list holds the reward.
 
     :param s: The position/state of the agent represented as a List of two ints
     :return: None
     """
-    utilities[s[0]][s[1]] = -3 + max(
+    utilities[s[0]][s[1]] = mdp[s[0]][s[1]] + max(
         [0.8 * get_utility(s, up) + 0.1 * get_utility(s, left) + 0.1 * get_utility(s, right),  # go up
          0.8 * get_utility(s, down) + 0.1 * get_utility(s, left) + 0.1 * get_utility(s, right),  # go down
          0.8 * get_utility(s, right) + 0.1 * get_utility(s, up) + 0.1 * get_utility(s, down),  # go right

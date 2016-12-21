@@ -1,7 +1,7 @@
 # MDP from the example by Sebastian Thrun in: https://www.youtube.com/watch?v=glHKJ359Cnc&t=44s
 mdp = [[-3, -3, -3, 100], [-3, None, -3, -100], [-3, -3, -3, -3]]
 
-# Initial Utilities
+# Initial utilities
 utilities = [[0, 0, 0, 100], [0, None, 0, -100], [0, 0, 0, 0]]
 
 # Actions
@@ -17,14 +17,14 @@ right = [0, 1]
 def hit_wall(s):
     """Checks if the agents hit a wall.
 
-    A wall in this World is defined as either entering a Position
-    that exceeds the bounds of the mpd List or a Position that
+    A wall in this world is defined as either entering a position
+    that exceeds the bounds of the mpd list or a position that
     has None as its value.
 
-    :param s: The position/state of the agent represented as a List of two ints
+    :param s: The position/state of the agent represented as a list of two ints
     :return: True, if agent would hit a wall with the next step
     """
-    if s == [1, 1]:  # We would enter the None-Field
+    if s == [1, 1]:  # We would enter the None-field
         return True
     elif s[0] < 0 or s[0] > 2 or s[1] < 0 or s[1] > 3:  # We would be out of bounds
         return True
@@ -41,7 +41,7 @@ def transition(s, direction):
     If the agents tries to move but would hit a wall the new position
     will be the old position.
 
-    :param s: The position/state of the agent represented as a List of two ints
+    :param s: The position/state of the agent represented as a list of two ints
     :param direction: The direction in which the agent moves
     :return: The new position
     """
@@ -55,7 +55,7 @@ def transition(s, direction):
 def get_utility(s, direction):
     """Gets the utility from a certain state s after action direction
 
-    :param s: The position/state of the agent represented as a List of two ints
+    :param s: The position/state of the agent represented as a list of two ints
     :param direction: The direction in which the agent moves
     :return: The utility of the newly reached state
     """
@@ -69,7 +69,7 @@ def value(s):
 
     Designed after the Bellman Equation but in a simplified version.
     U(s) = R(s) + max(P(s'|s, a) U(s))
-    The reward plus the max value of all neighbouring utilities mulitplied by their respective
+    Computes the reward plus the max value of all neighbouring utilities multiplied by their respective
     probability to reach the stat s'.
 
     :param s: The position/state of the agent represented as a List of two ints
